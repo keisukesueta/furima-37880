@@ -29,8 +29,8 @@ Things you may want to cover:
 
 | Column             | Type       | Options                   |
 | ------------------ | ------     | -----------               |
-| nickname           | string     | null: false, unique: true | ユニーク制約
-| email              | string     | null: false               | ユニーク制約
+| nickname           | string     | null: false,              |
+| email              | string     | null: false  unique: true | ユニーク制約
 | encrypted_password | string     | null: false               |
 | lastname           | string     | null: false               |
 | firstname          | string     | null: false               |
@@ -39,9 +39,8 @@ Things you may want to cover:
 | birth_day          | date       | null: false               |
 
 ### Association
-has_many :goods
-has_many :destinations
-has_many :historys
+- has_many :goods
+- has_many :historys
 
 
 
@@ -55,9 +54,9 @@ has_many :historys
 | status_id          | string   | null: false                    |
 | price              | string   | null: false                    |
 | category_id        | string   | null: false                    |
-| sippingcost_id     | string   | null: false                    |
-| sippingdays_id     | string   | null: false                    |
-| sippingaddress_id  | string   | null: false                    |
+| shippingcost_id    | string   | null: false                    |
+| shippingdays_id    | string   | null: false                    |
+| shippingaddress_id | string   | null: false                    |
 | user               |references| null: false, foreign_key: true | 外部キー
 
 
@@ -72,9 +71,9 @@ has_many :historys
 
 | Column         | Type       | Options                        |
 |-------------   |------------|--------------------------------|
-| postalcode     | string     | null: false                    |
+| postalcode_id  | string     | null: false                    |
 | prefecture_id  | string     | null: false                    |
-| city_id        | string     | null: false                    |
+| city           | string     | null: false                    |
 | address        | string     | null: false                    |
 | building       | string     |                                |
 | phone_number   | string     | null: false                    |
@@ -90,10 +89,10 @@ has_many :historys
 
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
-| goods_id    | integer    | null: false                    |
-| user        | references | null: false, foreign_key: true |
+| goods       | references | null: false, foreign_key: true |
+| user_id     | references | null: false                    |
 
-- has_one :good
+- belongs_to :good
 - belongs_to :user
 - has_one : destination
 
