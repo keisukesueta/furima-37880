@@ -40,7 +40,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :goods
-- has_many :historys
+- has_many :histories
 
 
 
@@ -71,7 +71,7 @@ Things you may want to cover:
 
 | Column         | Type       | Options                        |
 |-------------   |------------|--------------------------------|
-| postalcode_id  | integer    | null: false                    |
+| postalcode     | string     | null: false                    |
 | prefecture_id  | integer    | null: false                    |
 | city           | string     | null: false                    |
 | address        | string     | null: false                    |
@@ -85,7 +85,7 @@ Things you may want to cover:
 - belongs_to :history
 
 
-####　 historysテーブル
+####　 historiesテーブル
 
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
