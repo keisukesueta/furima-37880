@@ -47,17 +47,17 @@ Things you may want to cover:
 
 ### goodsテーブル
 
-| Column             | Type     | Options                        |
-| ------------------ | ------   | -----------                    |
-| name               | string   | null: false                    | 
-| description        | text     | null: false                    | 
-| status_id          | string   | null: false                    |
-| price              | string   | null: false                    |
-| category_id        | string   | null: false                    |
-| shippingcost_id    | string   | null: false                    |
-| shippingdays_id    | string   | null: false                    |
-| shippingaddress_id | string   | null: false                    |
-| user               |references| null: false, foreign_key: true | 外部キー
+| Column             | Type      | Options                        |
+| ------------------ | ------    | -----------                    |
+| name               | string    | null: false                    | 
+| description        | text      | null: false                    | 
+| status_id          | integer   | null: false                    |
+| price              | string    | null: false                    |
+| category_id        | integer   | null: false                    |
+| shippingcost_id    | integer   | null: false                    |
+| shippingdays_id    | integer   | null: false                    |
+| shippingaddress_id | integer   | null: false                    |
+| user               |references | null: false, foreign_key: true | 外部キー
 
 
 ### Association
@@ -71,8 +71,8 @@ Things you may want to cover:
 
 | Column         | Type       | Options                        |
 |-------------   |------------|--------------------------------|
-| postalcode_id  | string     | null: false                    |
-| prefecture_id  | string     | null: false                    |
+| postalcode_id  | integer    | null: false                    |
+| prefecture_id  | integer    | null: false                    |
 | city           | string     | null: false                    |
 | address        | string     | null: false                    |
 | building       | string     |                                |
@@ -89,8 +89,8 @@ Things you may want to cover:
 
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
-| goods       | references | null: false, foreign_key: true |
-| user_id     | references | null: false                    |
+| good        | references | null: false, foreign_key: true |
+| user        | references | null: false                    |
 
 - belongs_to :good
 - belongs_to :user
