@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="8ZZipcFq8wdRMtJ0WvpI" name="ページ1">
-        <mxGraphModel dx="1343" dy="942" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="1075" dy="753" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -211,7 +211,7 @@
                 <mxCell id="88" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="83" vertex="1">
                     <mxGeometry y="71" width="344.77" height="42" as="geometry"/>
                 </mxCell>
-                <mxCell id="89" value="postalcade_id" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;" parent="88" vertex="1">
+                <mxCell id="89" value="postalcade" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;" parent="88" vertex="1">
                     <mxGeometry width="105" height="42" as="geometry">
                         <mxRectangle width="105" height="42" as="alternateBounds"/>
                     </mxGeometry>
@@ -508,7 +508,7 @@
                 <mxCell id="300" style="edgeStyle=none;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.1;entryY=1.164;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=none;endFill=0;" parent="1" source="280" target="130" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="280" value="historys Table" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;" parent="1" vertex="1">
+                <mxCell id="280" value="histories Table" style="shape=table;startSize=30;container=1;collapsible=0;childLayout=tableLayout;" parent="1" vertex="1">
                     <mxGeometry x="660" y="850" width="330" height="190" as="geometry"/>
                 </mxCell>
                 <mxCell id="281" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="280" vertex="1">
@@ -550,7 +550,7 @@
                 <mxCell id="289" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="280" vertex="1">
                     <mxGeometry y="110" width="330" height="40" as="geometry"/>
                 </mxCell>
-                <mxCell id="290" value="goods" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;" parent="289" vertex="1">
+                <mxCell id="290" value="good" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;" parent="289" vertex="1">
                     <mxGeometry width="70" height="40" as="geometry">
                         <mxRectangle width="70" height="40" as="alternateBounds"/>
                     </mxGeometry>
