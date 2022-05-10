@@ -40,8 +40,10 @@ Things you may want to cover:
 
 ### Association
 has_many :goods
-has_many :destination
-has_many :history
+has_many :destinations
+has_many :historys
+
+
 
 
 ### goodsテーブル
@@ -62,16 +64,16 @@ has_many :history
 ### Association
 
 - belongs_to :user
-- has_one :destination
+- has_one :history
 
 
 
-####　destination テーブル
+####　destinations テーブル
 
 | Column         | Type       | Options                        |
 |-------------   |------------|--------------------------------|
 | postalcode     | string     | null: false                    |
-| prefecture_id  | references | null: false                    |
+| prefecture_id  | string     | null: false                    |
 | city_id        | string     | null: false                    |
 | address        | string     | null: false                    |
 | building       | string     |                                |
@@ -81,17 +83,18 @@ has_many :history
  
 ### Association
 
-- belongs_to :goods
-- belongs_to :user
+- belongs_to :history
 
-####　 historyテーブル
+
+####　 historysテーブル
 
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
 | goods_id    | integer    | null: false                    |
 | user        | references | null: false, foreign_key: true |
 
-- has_one :goods
+- has_one :good
 - belongs_to :user
+- has_one : destination
 
 
