@@ -67,7 +67,7 @@ Things you may want to cover:
 
 
 
-####　destinations テーブル
+#### destinations テーブル
 
 | Column         | Type       | Options                        |
 |-------------   |------------|--------------------------------|
