@@ -10,15 +10,13 @@ class User < ApplicationRecord
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
     with_options presence: true do
-    # PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
+    
     validates_format_of :password, with: PASSWORD_REGEX, message: 'Include both letters and numbers'
 
     validates :nickname,           presence: true
-    validates :email,              presence: true
-    validates :encrypted_password, presence: true 
     validates :birth_day,          presence: true
-    validates :lastname,           presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
-    validates :firstname,          presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
+    validates :lastname,           presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
+    validates :firstname,          presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
     validates :lastname_kana,      presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
     validates :firstname_kana,     presence: true, format: { with: /\A[ァ-ヶー－]+\z/ }
   end
