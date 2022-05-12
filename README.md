@@ -29,7 +29,7 @@ Things you may want to cover:
 
 | Column             | Type       | Options                   |
 | ------------------ | ------     | -----------               |
-| nickname           | string     | null: false,              |
+| nickname           | string     | null: false               |
 | email              | string     | null: false  unique: true | ユニーク制約
 | encrypted_password | string     | null: false               |
 | lastname           | string     | null: false               |
@@ -67,7 +67,7 @@ Things you may want to cover:
 
 
 
-####　destinations テーブル
+#### destinations テーブル
 
 | Column         | Type       | Options                        |
 |-------------   |------------|--------------------------------|
