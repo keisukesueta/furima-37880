@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 2022_05_12_070157) do
     t.integer "status_id", null: false
     t.integer "shippingcost_id", null: false
     t.integer "shippingaddress_id", null: false
-    t.integer "shippingdays_id", null: false
+    t.integer "shippingday_id", null: false
     t.string "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -66,9 +66,6 @@ ActiveRecord::Schema.define(version: 2022_05_12_070157) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  # add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  # add_foreign_key "items", "users"
-  # add_foreign_key "orders", "items"
-  # add_foreign_key "orders", "users"
-  # add_foreign_key "", "orders"
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "items", "users"
 end

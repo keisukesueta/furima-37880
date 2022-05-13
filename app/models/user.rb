@@ -9,8 +9,7 @@ class User < ApplicationRecord
   # has_many :comments
 
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
-    with_options presence: true do
-    
+  with_options presence: true do
     validates_format_of :password, with: PASSWORD_REGEX, message: 'Include both letters and numbers'
 
     validates :nickname,           presence: true
