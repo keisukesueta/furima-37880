@@ -15,9 +15,9 @@ RSpec.describe Item, type: :model do
 
   context '出品ができないとき' do
     it 'ユーザー登録している人でないと出品できない' do
-      @item.user_id = 1
+      @item.user_id = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include("User must exist")
+      expect(@item.errors.full_messages).to include()
     end
     it '１枚画像がないと出品できない' do
       @item.image = nil
@@ -37,52 +37,53 @@ RSpec.describe Item, type: :model do
     it 'カテゴリーの情報が「---」だと出品できない' do
       @item.category_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include('')
+      expect(@item.errors.full_messages).to include("Category can't be blank")
     end
     it 'カテゴリーの情報が空欄だと出品できない' do
       @item.category_id = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include('')
+      expect(@item.errors.full_messages).to include("Category can't be blank")
     end
     it '商品の状態の情報が「---」だと出品できない' do
       @item.status_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include('')
+      # binding.pry
+      expect(@item.errors.full_messages).to include("Status can't be blank")
     end
     it '商品の状態の情報が空欄だと出品できない' do
       @item.status_id = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include('')
+      expect(@item.errors.full_messages).to include("Status can't be blank")
     end
     it '配送料の負担の情報が「---」だと出品できない' do
       @item.shippingcost_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include('')
+      expect(@item.errors.full_messages).to include("Shippingcost can't be blank")
     end
     it '配送料の負担の情報が空欄だと出品できない' do
       @item.shippingcost_id = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include('')
+      expect(@item.errors.full_messages).to include("Shippingcost can't be blank")
     end
     it '発送元の地域の情報が「---」だと出品できない' do
       @item.shippingaddress_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include('')
+      expect(@item.errors.full_messages).to include("Shippingaddress can't be blank")
     end
     it '発送元の地域の情報が空欄だと出品できない' do
       @item.shippingaddress_id = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include('')
+      expect(@item.errors.full_messages).to include("Shippingaddress can't be blank")
     end
     it '発送までの日数の情報が「---」だと出品できない' do
       @item.shippingday_id = 0
       @item.valid?
-      expect(@item.errors.full_messages).to include('')
+      expect(@item.errors.full_messages).to include("Shippingday can't be blank")
     end
     it '発送までの日数の情報が空欄だと出品できない' do
       @item.shippingday_id = nil
       @item.valid?
-      expect(@item.errors.full_messages).to include('')
+      expect(@item.errors.full_messages).to include("Shippingday can't be blank")
     end
     it '価格が空欄だと出品できない' do
       @item.price = nil

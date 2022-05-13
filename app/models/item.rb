@@ -16,11 +16,11 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :description
-    validates :category_id
-    validates :status_id
-    validates :shippingcost_id
-    validates :shippingaddress_id
-    validates :shippingday_id
+    validates :category_id, numericality: { other_than: 0 , message: "can't be blank"}
+    validates :status_id, numericality: { other_than: 0 , message: "can't be blank"}
+    validates :shippingcost_id, numericality: { other_than: 0 , message: "can't be blank"}
+    validates :shippingaddress_id, numericality: { other_than: 0 , message: "can't be blank"}
+    validates :shippingday_id, numericality: { other_than: 0 , message: "can't be blank"}
     # 300円以上かつ9,999,999円以下で、半角数字でないと入力不可
     validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
