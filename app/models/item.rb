@@ -22,6 +22,6 @@ class Item < ApplicationRecord
     validates :shippingaddress_id, numericality: { other_than: 0 , message: "can't be blank"}
     validates :shippingday_id, numericality: { other_than: 0 , message: "can't be blank"}
     # 300円以上かつ9,999,999円以下で、半角数字でないと入力不可
-    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+    validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
   end
 end
