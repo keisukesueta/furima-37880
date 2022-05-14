@@ -39,13 +39,13 @@ Things you may want to cover:
 | birth_day          | date       | null: false               |
 
 ### Association
-- has_many :goods
+- has_many :items
 - has_many :histories
 
 
 
 
-### goodsテーブル
+### items テーブル
 
 | Column             | Type      | Options                        |
 | ------------------ | ------    | -----------                    |
@@ -85,14 +85,14 @@ Things you may want to cover:
 - belongs_to :history
 
 
-####　 historiesテーブル
+#### historiesテーブル
 
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
-| good        | references | null: false, foreign_key: true |
+| item        | references | null: false, foreign_key: true |
 | user        | references | null: false                    |
 
-- belongs_to :good
+- belongs_to :item
 - belongs_to :user
 - has_one : destination
 

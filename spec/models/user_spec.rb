@@ -9,14 +9,14 @@ RSpec.describe User, type: :model do
     context '新規登録がうまくいくとき' do
       it '全ての入力事項が、存在すれば登録できる' do
         expect(@user).to be_valid
-      end    
+      end
     end
-  
+
     context '新規登録がうまくかないとき' do
       it 'ニックネームが空欄だと保存できない' do
         @user.nickname = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Nickname can't be blank")
+        expect(@user.errors.full_messages).to include("Nicname can't be blank")
       end
       it 'メールアドレスが空欄だと保存できない' do
         @user.email = ''
@@ -34,11 +34,12 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('Email is invalid')
       end
-    
+
       it 'パスワードが空欄だと保存できない' do
         @user.password = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password can't be blank", 'Password Include both letters and numbers', "Password confirmation doesn't match Password")
+        expect(@user.errors.full_messages).to include("Password can't be blank", 'Password Include both letters and numbers',
+                                                      "Password confirmation doesn't match Password")
       end
       it 'パスワード（確認含む）が5文字以下だと保存できない' do
         @user.password = 'ab123'
@@ -68,14 +69,14 @@ RSpec.describe User, type: :model do
         @user.password = 'aaaaaa'
         @user.password_confirmation = 'aaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password Include both letters and numbers")
+        expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
       end
       it 'パスワード全角文字を含むパスワードでは登録できない' do
         @user.password = 'ああああああ'
         @user.password_confirmation = 'ああああああ'
         @user.valid?
         # binding.pry
-        expect(@user.errors.full_messages).to include("Password Include both letters and numbers")
+        expect(@user.errors.full_messages).to include('Password Include both letters and numbers')
       end
       it '名字が全角（漢字・ひらがな・カタカナ）でないと登録できない' do
         @user.lastname = 'yamada'
