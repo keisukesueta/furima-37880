@@ -4,10 +4,12 @@ class OrdersController < ApplicationController
 
   def index
     @destination_order = DestinationOrder.new
+    @item = Item.find(params[:item_id])
   end
 
   def create
     @destination_order = DestinationOrder.new(order_params)
+    @item = Item.find(params[:item_id])
     if @destination_order.valid?
       pay_item
       @destination_order.save
@@ -20,7 +22,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order_form).permit(:postalcode, :prefecture_id, :city, :address, :building, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
+    params.require(:destination_order).permit(:postalcode, :shippingaddress_id, :city, :address, :building, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id], token: params[:token])
   end
 
   def pay_item

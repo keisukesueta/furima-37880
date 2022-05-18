@@ -1,6 +1,6 @@
 class DestinationOrder
   include ActiveModel::Model
-  attr_accessor :user_id, :item_id, :postalcode, :prefecture_id, :city, :address, :building, :phone_number, :token
+  attr_accessor :user_id, :item_id, :postalcode, :shippingaddress_id, :city, :address, :building, :phone_number, :token
 
  
   with_options presence: true do
@@ -8,10 +8,10 @@ class DestinationOrder
     validates :user_id
     validates :item_id
 
-    validates :postcode, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
-    validates :prefecture_id, numericality: { other_than: 0, message: "can't be blank" }
+    validates :postalcode, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
+    validates :shippingaddress_id, numericality: { other_than: 0, message: "can't be blank" }
     validates :city
-    validates :block
+    validates :address
     validates :phone_number, format: { with: /\A[0-9]{11}\z/, message: 'is invalid' }
 
     validates :token
@@ -20,6 +20,6 @@ class DestinationOrder
   def save
     order = Order.create(user_id: user_id, item_id: item_id)
   
-    Payment.create(order_id: order.id, postalcode: postalcode, prefecture_id: prefecture_id, city: city, address: address, building: building, phone_number: phone_number)
+    Destination.create(order_id: order.id, postalcode: postalcode, shippingaddress_id: shippingaddress_id, city: city, address: address, building: building, phone_number: phone_number)
   end
 end
