@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.user_id == current_user.id #&& @item.order.nil?
+    if @item.user_id == current_user.id && @item.order.nil?
     else
       redirect_to root_path
     end
@@ -39,19 +39,18 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    if @item.user_id == current_user.id
-      @item.destroy
-    end
-      redirect_to root_path
-   end
+    @item.destroy if @item.user_id == current_user.id
+    redirect_to root_path
+  end
 
   private
 
   def item_params
-    params.require(:item).permit(:image, :name, :description, :category_id, :status_id, :shippingcost_id, :shippingaddress_id,:shippingday_id, :price).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :name, :description, :category_id, :status_id, :shippingcost_id, :shippingaddress_id,
+                                 :shippingday_id, :price).merge(user_id: current_user.id)
   end
 
-   def set_item
-   @item = Item.find(params[:id])
-   end
+  def set_item
+    @item = Item.find(params[:id])
+  end
 end

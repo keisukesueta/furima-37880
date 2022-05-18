@@ -34,11 +34,6 @@ RSpec.describe DestinationOrder, type: :model do
         @destination_order.valid?
         expect(@destination_order.errors.full_messages).to include("User can't be blank")
       end
-      it 'userが紐付いていないと保存できないこと' do
-        @destination_order.user_id = nil
-        @destination_order.valid?
-        expect(@destination_order.errors.full_messages).to include("User can't be blank")
-      end
       it 'item_idが空だと保存できない' do
         @destination_order.item_id = nil
         @destination_order.valid?
@@ -47,7 +42,8 @@ RSpec.describe DestinationOrder, type: :model do
       it '郵便番号が空だと保存できないこと' do
         @destination_order.postalcode = nil
         @destination_order.valid?
-        expect(@destination_order.errors.full_messages).to include("Postalcode can't be blank", 'Postalcode is invalid. Include hyphen(-)')
+        expect(@destination_order.errors.full_messages).to include("Postalcode can't be blank",
+                                                                   'Postalcode is invalid. Include hyphen(-)')
       end
       it '郵便番号にハイフンがないと保存できないこと' do
         @destination_order.postalcode = 1_234_567
@@ -55,14 +51,14 @@ RSpec.describe DestinationOrder, type: :model do
         expect(@destination_order.errors.full_messages).to include('Postalcode is invalid. Include hyphen(-)')
       end
       it '都道府県が「---」だと保存できないこと' do
-        @destination_order.prefecture_id = 0
+        @destination_order.shippingaddress_id = 0
         @destination_order.valid?
-        expect(@destination_order.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@destination_order.errors.full_messages).to include("Shippingaddress can't be blank")
       end
       it '都道府県が空だと保存できないこと' do
-        @destination_order.prefecture_id = nil
+        @destination_order.shippingaddress_id = nil
         @destination_order.valid?
-        expect(@destination_order.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@destination_order.errors.full_messages).to include("Shippingaddress can't be blank")
       end
       it '市区町村が空だと保存できないこと' do
         @destination_order.city = nil
@@ -80,12 +76,17 @@ RSpec.describe DestinationOrder, type: :model do
         expect(@destination_order.errors.full_messages).to include("Phone number can't be blank")
       end
       it '電話番号にハイフンがあると保存できないこと' do
-        @destination_order.phone_number = '123 - 1234 - 1234'
+        @destination_order.phone_number = '123-1234-1234'
         @destination_order.valid?
         expect(@destination_order.errors.full_messages).to include('Phone number is invalid')
       end
       it '電話番号が12桁以上あると保存できないこと' do
         @destination_order.phone_number = 12_345_678_910_123_111
+        @destination_order.valid?
+        expect(@destination_order.errors.full_messages).to include('Phone number is invalid')
+      end
+      it '電話番号が9桁以下だと保存できないこと' do
+        @destination_order.phone_number = 12_345_678_9
         @destination_order.valid?
         expect(@destination_order.errors.full_messages).to include('Phone number is invalid')
       end
