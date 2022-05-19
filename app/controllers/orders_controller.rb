@@ -9,7 +9,6 @@ class OrdersController < ApplicationController
 
   def create
     @destination_order = DestinationOrder.new(order_params)
-    @item = Item.find(params[:item_id])
     if @destination_order.valid?
       pay_item
       @destination_order.save
