@@ -40,7 +40,7 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-- has_many :histories
+- has_many :orders
 
 
 
@@ -63,7 +63,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-- has_one :history
+- has_one :order
 
 
 
@@ -77,20 +77,20 @@ Things you may want to cover:
 | address        | string     | null: false                    |
 | building       | string     |                                |
 | phone_number   | string     | null: false                    |
-| user           | references | null: false, foreign_key: true |
+| order          | references | null: false, foreign_key: true |
 
  
 ### Association
 
-- belongs_to :history
+- belongs_to :order
 
 
-#### historiesテーブル
+#### ordersテーブル
 
 | Column      | Type       | Options                        |
 |-------------|------------|--------------------------------|
 | item        | references | null: false, foreign_key: true |
-| user        | references | null: false                    |
+| user        | references | null: false, foreign_key: true |
 
 - belongs_to :item
 - belongs_to :user
