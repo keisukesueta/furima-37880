@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :authenticate_user!
-  # before_action :non_purchased_item, only: [:index, :create]
+  before_action :purchased_item, only: [:index, :create]
 
   def index
     @destination_order = DestinationOrder.new
@@ -36,8 +36,8 @@ class OrdersController < ApplicationController
     )
   end
 
-  # def non_purchased_item
-  # @item = Item.find(params[:item_id])
-  # redirect_to root_path if current_user.id == @item.user_id  #|| @item.order.present?
-  # end
+  def purchased_item
+  @item = Item.find(params[:item_id])
+  redirect_to root_path if current_user.id == @item.user_id || @item.order.present?
+  end
 end
